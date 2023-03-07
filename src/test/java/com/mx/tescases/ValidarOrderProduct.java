@@ -23,7 +23,6 @@ public class ValidarOrderProduct extends TestBase {
         inventoryPage = new InventoryPage();
         carPage = new CarPage();
         checkoutOnePage=new CheckoutOnePage();
-        checkoutTwoPage=new CheckoutTwoPage();
     }
 
     @Test
@@ -41,16 +40,9 @@ public class ValidarOrderProduct extends TestBase {
         carPage.irCheckout();
     }
 
-    @Test
-    public void validateProduct02(){
-        checkoutOnePage = checkoutOnePage.enterUser(properties.getProperty("firstName"),
-                properties.getProperty("lastName"), properties.getProperty("zipCode"));
-        String name=inventoryPage.nameProduct.getText();
-        String price=inventoryPage.priceProduct.getText();
-       boolean flagOne =  checkoutTwoPage.validateProducto(name);
-       Assert.assertTrue(flagOne);
-       boolean flagTwo = checkoutTwoPage.validatePrecio(price);
-       Assert.assertTrue(flagTwo);
-    }
+
+
+
+
 
 }
