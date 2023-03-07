@@ -27,8 +27,6 @@ public class CheckoutOnePage extends TestBase {
         firstName.sendKeys(firstname);
         lastName.sendKeys(lastname);
         zipCode.sendKeys(zipcode);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", btnContinue);
         return new CheckoutOnePage();
     }
 

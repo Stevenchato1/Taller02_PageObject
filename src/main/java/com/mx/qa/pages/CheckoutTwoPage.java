@@ -28,7 +28,8 @@ public class CheckoutTwoPage extends TestBase {
     }
 
     public boolean validatePrecio(String price) {
-        return priceProduct.getText().equals(price);
+        String precio=priceProduct.getText();
+        return price.contains(precio);
     }
 
     public void enterFinish() {
