@@ -4,6 +4,7 @@ import com.mx.qa.base.TestBase;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class InventoryPage extends TestBase {
     @FindBy(xpath = "//a[contains(@class,inventory_item)]//div[contains(text(),'Backpack')]")
@@ -20,6 +21,10 @@ public class InventoryPage extends TestBase {
 
     public String name_Product = nameProduct.getText();
     public String price_Product = priceProduct.getText();
+
+    public InventoryPage() {
+        PageFactory.initElements(driver, this);
+    }
 
     public void agregarCarrito() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
