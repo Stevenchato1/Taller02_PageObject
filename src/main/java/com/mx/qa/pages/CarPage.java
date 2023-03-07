@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+
 public class CarPage extends TestBase {
     public CarPage() {
         PageFactory.initElements(driver, this);
@@ -14,22 +15,22 @@ public class CarPage extends TestBase {
     @FindBy(xpath = "//a[contains(@class,inventory_item)]//div[contains(text(),'Backpack')]")
     public WebElement validateName;
 
-    @FindBy(xpath = "(//div[contains(@class,'pricebar')])[position()=1]")
+    @FindBy(xpath = "(//div[contains(@class,'inventory_item_price')])[position()=1]")
     public WebElement validatePrice;
 
     @FindBy(id = "checkout")
     public WebElement btnCheckout;
 
-    InventoryPage item = new InventoryPage();
-    String name = item.name_Product;
-    String price = item.price_Product;
 
-    public boolean validateProducto() {
+
+    public boolean validateProducto(String name) {
         return validateName.getText().equals(name);
     }
 
-    public boolean validatePrecio() {
-        return validatePrice.getText().equals(price);
+    public boolean validatePrecio(String price) {
+        String precio=validatePrice.getText();
+        return price.contains(precio);
+
     }
 
     public void irCheckout() {

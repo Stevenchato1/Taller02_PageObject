@@ -21,15 +21,13 @@ public class CheckoutTwoPage extends TestBase {
     @FindBy(id="finish")
     public WebElement finish;
 
-    InventoryPage item = new InventoryPage();
-    String name = item.name_Product;
-    String price = item.price_Product;
+;
 
-    public boolean validateProducto() {
+    public boolean validateProducto(String name) {
         return nameProduct.getText().equals(name);
     }
 
-    public boolean validatePrecio() {
+    public boolean validatePrecio(String price) {
         return priceProduct.getText().equals(price);
     }
 

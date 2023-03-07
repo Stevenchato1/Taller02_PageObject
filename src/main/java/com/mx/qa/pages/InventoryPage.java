@@ -19,8 +19,7 @@ public class InventoryPage extends TestBase {
     @FindBy(xpath = "//a[@class='shopping_cart_link']")
     public WebElement btnCar;
 
-    public String name_Product = nameProduct.getText();
-    public String price_Product = priceProduct.getText();
+
 
     public InventoryPage() {
         PageFactory.initElements(driver, this);
@@ -35,6 +34,8 @@ public class InventoryPage extends TestBase {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", btnCar);
     }
+
+
 
 
 }
