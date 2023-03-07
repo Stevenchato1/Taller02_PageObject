@@ -7,6 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CarPage extends TestBase {
+    public CarPage() {
+        PageFactory.initElements(driver, this);
+    }
+
     @FindBy(xpath = "//a[contains(@class,inventory_item)]//div[contains(text(),'Backpack')]")
     public WebElement validateName;
 
@@ -20,9 +24,6 @@ public class CarPage extends TestBase {
     String name = item.name_Product;
     String price = item.price_Product;
 
-    public CarPage() {
-        PageFactory.initElements(driver, this);
-    }
     public boolean validateProducto() {
         return validateName.getText().equals(name);
     }
