@@ -7,13 +7,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class CheckoutOnePage extends TestBase {
-    @FindBy(xpath = "//div[@class='checkout_info']//input[@id='first-name']")
+    @FindBy(xpath = "//input[@id='first-name']")
     public WebElement firstName;
 
-    @FindBy(id = "//input[@id='last-name']")
+    @FindBy(xpath = "//input[@id='last-name']")
     public WebElement lastName;
 
-    @FindBy(id = "//input[@id='postal-code']")
+    @FindBy(xpath = "//input[@id='postal-code']")
     public WebElement zipCode;
 
     @FindBy(id ="continue")
@@ -23,10 +23,16 @@ public class CheckoutOnePage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-    public CheckoutOnePage enterUsuari(String user){
-        firstName.click();
-        firstName.sendKeys(user);
-        return new  CheckoutOnePage();
+    public CarPage enterUser(String name, String last, String code){
+        firstName.sendKeys(name);
+        lastName.sendKeys(last);
+        zipCode.sendKeys(code);
+        return new CarPage();
+    }
+
+    public void irCheckout() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", btnContinue);
     }
 
 
